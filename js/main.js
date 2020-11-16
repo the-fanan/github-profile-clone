@@ -12,13 +12,28 @@ function removeSearchFocus()
     searchBox.classList.remove("focused");
 }
 
-function toggleDropdown(elem)
+function hideDropdown()
+{
+    let dropdowns = document.getElementsByClassName("dropdown");
+    for (let i = 0; i < dropdowns.length; i++) {
+        let dropdown = dropdowns[i];
+        if (dropdown.tagName !== undefined) {
+            dropdown.style.display = "none"
+        }
+    }
+}
+
+function toggleDropdown(event)
 {   
-    for (let i = 0; i < elem.parentNode.childNodes.length; i++) {
-        let child = elem.parentNode.childNodes[i];
+    event.stopPropagation()
+    let parent = event.target.closest(".nav-item")
+    for (let i = 0; i < parent.childNodes.length; i++) {
+        let child = parent.childNodes[i];
         if (child.tagName !== undefined) {
             if (child.classList.contains("dropdown")) {
                 if (child.style.display == "none" || child.style.display == "") {
+                    //close other dropdowns
+                    hideDropdown()
                     child.style.display = "inline-block"
                 } else {
                     child.style.display = "none"
@@ -29,5 +44,9 @@ function toggleDropdown(elem)
 }
 
 window.addEventListener('load', function () {
-   
+    document.addEventListener('click', function(event) {
+        if (!event.target.classList.contains("dropdown")) {
+            hideDropdown()
+        }
+    })
 })

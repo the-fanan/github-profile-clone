@@ -29,7 +29,7 @@ html, body {
 }
 
 .navbar .dropdown-icon:hover {
-    border-color: #919396;
+    border-top-color: #919396;
 }
 
 .navbar a {
