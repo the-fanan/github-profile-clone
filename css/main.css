@@ -42,12 +42,42 @@ html, body {
 }
 
 .navbar .nav-item {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0;
     margin: 0;
     margin-right: 15px;
+}
+
+.navbar .nav-item .dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: auto;
+    z-index: 100;
+    min-width: 158px;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(149, 157, 165, .2);
+    padding: 4px 0;
+    background-color: #fff;
+    border: 1px solid #e1e4e8;
+    display: none;
+}
+
+.navbar .nav-item .dropdown::before, .navbar .nav-item .dropdown::after{
+    position: absolute;
+    display: inline-block;
+    content: "";
+}
+
+.navbar .nav-item .dropdown::before {
+    top: -16px;
+    right: 9px;
+    left: auto;
+    border: 8px solid transparent;
+    border-bottom: 8px solid #fff;
 }
 
 .navbar .nav-item.responsive-drawer button{
