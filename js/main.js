@@ -44,7 +44,7 @@ function toggleDropdown(event)
 }
 
 window.addEventListener('load', function () {
-    document.querySelectorAll('.icon-holder').forEach(item => {
+    document.querySelectorAll('.dropdown-toggler').forEach(item => {
         item.addEventListener('click', event => {
             toggleDropdown(event)
         })
