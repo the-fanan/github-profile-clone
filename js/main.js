@@ -48,7 +48,7 @@ window.addEventListener('load', function () {
         item.addEventListener('click', event => {
             toggleDropdown(event)
         })
-      })
+    })
     document.addEventListener('click', function(event) {
         if (!event.target.classList.contains("dropdown")) {
             hideDropdown()

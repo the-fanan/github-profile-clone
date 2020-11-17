@@ -80,6 +80,71 @@ html, body {
     border-bottom: 8px solid #fff;
 }
 
+.navbar .nav-item .dropdown ul.dropdown-list {
+    list-style-type: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar .nav-item .dropdown ul.dropdown-list li {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar .nav-item .dropdown ul.dropdown-list li.divider {
+    margin: 8px 0;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+.navbar .nav-item .dropdown ul.dropdown-list li .status-container {
+    display: block;
+    padding: 0 16px;
+}
+.navbar .nav-item .dropdown ul.dropdown-list li .status-container .status-main {
+    border: 1px solid #e1e4e8;
+    display: flex;
+    width: 128px;
+    padding: 4px 8px; 
+    margin: 0;
+    margin-top: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #24292e;
+    line-height: 1.2;
+    font-size: 12px;
+}
+
+.navbar .nav-item .dropdown ul.dropdown-list li .status-container .status-main:hover {
+    color: #0366d6;
+}
+
+.navbar .nav-item .dropdown ul.dropdown-list li .status-container .status-main g-emoji {
+    margin-right: 8px;
+}
+
+.navbar .nav-item .dropdown ul.dropdown-list li a {
+    display: block;
+    color: #24292e;
+    padding: 4px 8px 4px 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.navbar .nav-item .dropdown ul.dropdown-list li a:hover {
+    color: #fff;
+    background-color: #0366d6;
+}
+
+.navbar .nav-item .dropdown ul.dropdown-list li a.heading {
+    padding-right: 16px;
+}
+.navbar .nav-item .dropdown ul.dropdown-list li a.heading:hover {
+    color: #24292e;
+    background-color: #fff;
+}
+
 .navbar .nav-item.responsive-drawer button{
     background-color: transparent;
     border: 0;
