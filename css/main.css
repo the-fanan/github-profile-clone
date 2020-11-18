@@ -4,6 +4,11 @@ html, body {
     font-family: 'Open Sans', sans-serif;
 }
 
+/**
+*
+* Navbar
+*
+*/
 .navbar {
     background-color: #24292e;
     padding: 16px 32px 16px;
@@ -12,6 +17,7 @@ html, body {
     justify-content: space-between;
     color: #fff;
     font-size: 14px;
+    flex-wrap: wrap;
 }
 
 .navbar .dropdown-icon {
@@ -197,6 +203,7 @@ html, body {
 
 .navbar .nav-item.search .search-box {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     width: 272px;
     background-color: transparent;
@@ -212,7 +219,6 @@ html, body {
     background-color: transparent;
     min-height: 28px;
     display: flex;
-    flex: auto;
     padding: 0 12px 0 12px;
 }
 .navbar .nav-item.search .search-box span.slash-holder {
@@ -220,12 +226,13 @@ html, body {
 }
 
 .navbar .nav-item.search .search-box input::-moz-placeholder, .navbar .nav-item.search .search-box input::placeholder, .navbar .nav-item.search .search-box input::-webkit-input-placeholder {
-    color: #fff!important;
+    color: #fff;
     font-size: 14px;
 }
 
 .navbar .nav-item.search .search-box.focused {
-    width: 518px;
+    max-width: 518px;
+    width: 100%;
     background-color: #fafbfc;
 }
 
@@ -262,3 +269,4 @@ html, body {
 .navbar .nav-item.search a span.pr {
     margin-left: 3px;
 }
+

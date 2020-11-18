@@ -23,6 +23,16 @@ function hideDropdown()
     }
 }
 
+function toggleSearchArea()
+{
+    let searchArea = document.getElementById("search-area");
+    if (searchArea.classList.contains("display-sm-none")) {
+        searchArea.classList.remove("display-sm-none");
+    } else {
+        searchArea.classList.add("display-sm-none");
+    }
+}
+
 function toggleDropdown(event)
 {   
     event.stopPropagation()
