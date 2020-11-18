@@ -76,7 +76,7 @@ function getProfileData()
         'Authorization': 'Bearer ' + token,
         'Content-type': 'application/json',
     })
-    let body = '{ "query": "query { user(login:\\\"the-fanan\\\") { name url login bio avatarUrl followers { totalCount } following { totalCount } location email twitterUsername websiteUrl starredRepositories { totalCount } status { id emoji } repositories(first: 20, orderBy: {field:NAME, direction:ASC}) { nodes { name url isPrivate forkCount stargazerCount primaryLanguage { id name color } owner { login } defaultBranchRef { name } } } } }" } ';
+    let body = '{ "query": "query { user(login:\\\"the-fanan\\\") { name url login bio avatarUrl followers { totalCount } following { totalCount } location email twitterUsername websiteUrl starredRepositories { totalCount } status { id emoji } repositories(first: 20, orderBy: {field:NAME, direction:ASC}) { nodes { name url isPrivate forkCount stargazerCount primaryLanguage { id name color } owner { login } defaultBranchRef { name } } } } }" }';
 
     let result = new Promise((resolve, reject) => {
         fetch(url, {
@@ -110,6 +110,7 @@ window.addEventListener('load', function () {
 
     getProfileData()
     .then(data => {
+        updateDOMWithProfileData(data)
         console.log(data)
     })
     .catch(error => {
