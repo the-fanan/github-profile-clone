@@ -160,6 +160,12 @@
 * Medium screens
 *****************************************************************************/
 @media (max-width: 991px){
+    .padding-horizontal {
+        padding: 0 8px;
+    }
+    .padding-horizontal-lg {
+        padding: 0 24px;
+    }
     .display-xs-flex {
         display: flex!important;
     }

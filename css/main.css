@@ -3,6 +3,30 @@ html, body {
     padding: 0;
     font-family: 'Open Sans', sans-serif;
 }
+/**
+*
+* Utilities
+*
+*/
+.width-25 {
+    width: 25%;
+}
+
+.width-75 {
+    width: 75%;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.padding-horizontal {
+    padding: 0 16px;
+}
+
+.padding-horizontal-lg {
+    padding: 0 32px;
+}
 
 /**
 *
@@ -270,3 +294,64 @@ html, body {
     margin-left: 3px;
 }
 
+/**
+* Sub Nav
+*/
+.sub-nav-sticky-container {
+    border-bottom: 1px solid #e1e4e8;
+    position: sticky;
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.sub-nav {
+    display: inline-block;
+    font-size: 0;
+}
+
+.sub-nav a {
+    font-size: 14px;
+    padding: 8px 16px;
+    border-bottom: 2px solid #fff;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #24292e;
+    text-decoration: none;
+    transition: .4s ease;
+    margin: 0;
+}
+
+.sub-nav a:hover {
+    border-bottom-color: #d1d5da;
+}
+
+.sub-nav a svg {
+    fill: #959da5;
+    margin-right: 4px;
+}
+
+.sub-nav a .count-badge {
+    min-width: 20px;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 0 6px;
+    background-color: #e8eaec;
+    border-radius: 2em;
+    margin-left: 4px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.sub-nav a.active {
+    border-bottom-color: #f9826c;
+    font-weight: 700;
+}
+.sub-nav a.active:hover {
+    border-bottom-color: #f9826c;
+}
+
+.sub-nav a.active svg {
+    fill:  #24292e
+}

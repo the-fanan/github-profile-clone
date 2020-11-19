@@ -60,7 +60,11 @@ function toggleDropdown(event)
  */
 function updateDOMWithProfileData(data)
 {
-
+    // update repositories count components
+    let respositoryCountBadges = document.getElementsByClassName('repositories-count')
+    for (let i = 0; i < respositoryCountBadges.length; i++) {
+        respositoryCountBadges[i].innerHTML = data.user.repositories.totalCount;
+    }
 }
 
 /**
@@ -76,7 +80,7 @@ function getProfileData()
         'Authorization': 'Bearer ' + token,
         'Content-type': 'application/json',
     })
-    let body = '{ "query": "query { user(login:\\\"the-fanan\\\") { name url login bio avatarUrl followers { totalCount } following { totalCount } location email twitterUsername websiteUrl starredRepositories { totalCount } status { id emoji } repositories(first: 20, orderBy: {field:NAME, direction:ASC}) { nodes { name url isPrivate forkCount stargazerCount primaryLanguage { id name color } owner { login } defaultBranchRef { name } } } } }" }';
+    let body = '{ "query": "query { user(login:\\\"the-fanan\\\") { name url login bio avatarUrl followers { totalCount } following { totalCount } location email twitterUsername websiteUrl starredRepositories { totalCount } status { id emoji } repositories(first: 20, orderBy: {field:NAME, direction:ASC}) { totalCount nodes { name url isPrivate forkCount stargazerCount primaryLanguage { id name color } owner { login } defaultBranchRef { name } } } } }" }';
 
     let result = new Promise((resolve, reject) => {
         fetch(url, {
@@ -110,7 +114,7 @@ window.addEventListener('load', function () {
 
     getProfileData()
     .then(data => {
-        updateDOMWithProfileData(data)
+        updateDOMWithProfileData(data.data)
         console.log(data)
     })
     .catch(error => {
