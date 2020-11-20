@@ -40,7 +40,7 @@ html, body {
 .navbar {
     background-color: #24292e;
     padding: 16px 32px 16px;
-    height: 30px;
+    height: 32px;
     display: flex;
     justify-content: space-between;
     color: #fff;
@@ -78,6 +78,7 @@ html, body {
 .navbar .nav-item {
     position: relative;
     display: flex;
+    height: 32px;
     justify-content: center;
     align-items: center;
     padding: 0;
@@ -192,6 +193,11 @@ html, body {
 }
 .navbar .nav-item.responsive-drawer button svg:hover {
     fill: #919396;
+}
+
+.navbar .nav-item.site-logo svg{
+    position: relative;
+    top: 2px;
 }
 
 .navbar .nav-item svg{

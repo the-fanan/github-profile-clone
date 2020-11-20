@@ -26,10 +26,13 @@ function hideDropdown()
 function toggleSearchArea()
 {
     let searchArea = document.getElementById("search-area");
+    let navBar = document.getElementById("main-nav")
     if (searchArea.classList.contains("display-sm-none")) {
         searchArea.classList.remove("display-sm-none");
+        navBar.classList.add("show-search-area");
     } else {
         searchArea.classList.add("display-sm-none");
+        navBar.classList.remove("show-search-area");
     }
 }
 

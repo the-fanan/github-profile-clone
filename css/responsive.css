@@ -310,6 +310,14 @@
         position: relative;
         padding-right: 16px;
         padding-left: 16px;
+        height: 32px;
+    }
+
+    .navbar.show-search-area {
+        height: auto;
+    }
+
+    .navbar.show-search-area .nav-item.search {
         height: auto;
     }
 
