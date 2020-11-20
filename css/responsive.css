@@ -253,6 +253,15 @@
 * Small screens
 *****************************************************************************/
 @media (max-width: 767px){
+
+    .width-sm-100 {
+        width: 100%;
+    }
+
+    .padding-horizontal-lg {
+        padding: 0 16px;
+    }
+
     .display-xs-flex {
         display: flex!important;
     }
@@ -339,12 +348,23 @@
         padding: 8px 0;
         margin-right: 0;
     }
+
+    .sub-nav-sticky-container-sm {
+        display: block!important;
+        width: 104%!important;
+        margin-left:-10%;
+        margin-right:-10%;
+    }
+    .content-container {
+        flex-wrap: wrap;
+    }
 }
 
 /******************************************************************************
 * Extra Small screens
 *****************************************************************************/
-@media (max-width: 576px){
+@media (max-width: 544px){
+
     .display-none {
         display: none!important;
     }
@@ -375,5 +395,9 @@
 
     .display-xs-inline-block {
         display: inline-block!important;
+    }
+
+    .sub-nav a svg {
+        display: none;
     }
 }

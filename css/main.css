@@ -20,6 +20,10 @@ html, body {
     width: 100%;
 }
 
+.padding-horizontal-sm {
+    padding: 0 8px;
+}
+
 .padding-horizontal {
     padding: 0 16px;
 }
@@ -298,16 +302,23 @@ html, body {
 * Sub Nav
 */
 .sub-nav-sticky-container {
+    z-index: 3;
     border-bottom: 1px solid #e1e4e8;
     position: sticky;
+    top: 0;
     margin-top: 24px;
     display: flex;
     justify-content: center;
 }
 
 .sub-nav {
-    display: inline-block;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
     font-size: 0;
+    overflow-x: auto;
 }
 
 .sub-nav a {
@@ -355,4 +366,21 @@ html, body {
 
 .sub-nav a.active svg {
     fill:  #24292e
+}
+
+/**
+*
+* Main Content Area
+*
+*/
+.content-container {
+    display: flex;
+    justify-content: center;
+    overflow-x:hidden;
+}
+
+.repo-area {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
