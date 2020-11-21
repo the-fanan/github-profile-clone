@@ -360,7 +360,8 @@
     }
 
     .sub-nav-sticky-container-sm {
-        display: block!important;
+        position: sticky!important;
+        top: 0!important;
         width: 104%!important;
         margin-left:-10%;
         margin-right:-10%;

@@ -364,6 +364,7 @@ html, body {
     margin-top: 24px;
     display: flex;
     justify-content: center;
+    background-color: #fff;
 }
 
 .sub-nav {
@@ -431,7 +432,7 @@ html, body {
 .content-container {
     display: flex;
     justify-content: center;
-    overflow-x:hidden;
+  
 }
 
 .repo-area {
@@ -558,16 +559,19 @@ html, body {
 .repositories-list .repository-main .info .info-item .language-color {
     display: inline-block;
     position: relative;
-    top: 1px;
+    top: 2px;
     width: 12px;
     height: 12px;
     border-radius: 50%;
+    border: 1px solid rgba(27, 31, 35, .1);
+    margin-right: 3px;
 }
 
 .repositories-list .repository-main .info .info-item svg {
     fill: #586069;
     position: relative;
     top: 2px;
+    margin-right: 1px;
 }
 
 .repositories-list .repository-main .info .info-item a {
