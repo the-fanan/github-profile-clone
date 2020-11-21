@@ -57,6 +57,57 @@ function toggleDropdown(event)
 }
 
 /**
+ * Converts date in UTC string format to a human difference format (2020-04-23T06:44:00Z)
+ * @param {String} dateString 
+ * 
+ * @return {String}
+ */
+function generateHumanDate(dateString)
+{
+    let today = new Date();
+    let date = new Date(dateString);
+    let diffSeconds = (today.getTime() - date.getTime()) / (1000);
+    if (diffSeconds < 60) {
+        return " a few seconds ago";
+    }
+
+    let diffMinutes = Math.round((today.getTime() - date.getTime()) / (1000 * 60));
+    if (diffMinutes === 1) {
+        return diffMinutes + " minute ago";
+    }
+    if (diffMinutes < 60) {
+        return diffMinutes + " minutes ago";
+    }
+
+    let diffHours = Math.round((today.getTime() - date.getTime()) / (1000 * 3600));
+    if (diffHours === 1) {
+        return diffHours + " hour ago";
+    }
+    if (diffHours <= 24) {
+        return diffHours + " hours ago";
+    }
+
+    let diffDays = Math.round((today.getTime() - date.getTime()) / (1000 * 3600 * 24));
+    if (diffDays === 1) {
+        return diffDays + " day ago";
+    }
+    if (diffDays <= 8) {
+        return diffDays + " days ago";
+    }
+
+    if (diffDays < 365) {
+        return "on " + date.toLocaleString('default', { month: 'short' }) + " " + date.getDay();
+    }
+
+    let diffYears = Math.round((today.getTime() - date.getTime()) / (1000 * 3600 * 24 * 365));
+    if (diffYears === 1) {
+        return diffYears + " year ago";
+    }
+
+    return diffYears + " years ago";
+}
+
+/**
  *  Updates DOM with the fetched user data
  * 
  * @param {Object} data 
