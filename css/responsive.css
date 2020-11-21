@@ -247,6 +247,8 @@
     .navbar .nav-item.search .search-box.focused input {
         width: 100%;
     }
+
+  
 }
 
 /******************************************************************************
@@ -365,6 +367,26 @@
     }
     .content-container {
         flex-wrap: wrap;
+    }
+
+    .repo-filter-container {
+        flex-wrap: wrap;
+    }
+    .repo-filter-container .search-input-holder {
+        margin-right: 0;
+        margin-bottom: 16px;
+        width: 100%;
+    }
+
+
+    .repo-filter-container  .buttons-holder {
+        position: relative;
+        width: 100%;
+    }
+
+    .repo-filter-container  .buttons-holder .button:last-child {
+        position: absolute;
+        right: 0;
     }
 }
 
