@@ -247,6 +247,15 @@ function updateDOMWithProfileData(data)
     }
 }
 
+getProfileData()
+    .then(data => {
+        updateDOMWithProfileData(data.data)
+        console.log(data)
+    })
+    .catch(error => {
+        console.log(error)
+    })
+
 /**
  * Gets the user data from Github GraphQL API
  * 
@@ -290,14 +299,5 @@ window.addEventListener('load', function () {
         if (!event.target.classList.contains("dropdown")) {
             hideDropdown();
         }
-    })
-
-    getProfileData()
-    .then(data => {
-        updateDOMWithProfileData(data.data)
-        console.log(data)
-    })
-    .catch(error => {
-        console.log(error)
     })
 })
