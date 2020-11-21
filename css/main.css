@@ -259,10 +259,23 @@ html, body {
 }
 
 .navbar .nav-item .icon-holder {
+    position: relative;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.navbar .nav-item .icon-holder .unread-icon {
+    display: inline-block;
+    position: absolute;
+    top: -5px;
+    left: 6px;
+    width: 9.5px;
+    height: 9.5px;
+    border-radius: 50%;
+    border: 2px solid #24292e;
+    background-image: linear-gradient(#54a3ff,#006eed);
 }
 
 .navbar .nav-item .icon-holder img {
@@ -288,7 +301,7 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 272px;
+    max-width: 272px;
     background-color: transparent;
     border: 1px solid #444d56;    
     border-radius: 6px;
@@ -588,7 +601,7 @@ html, body {
 }
 
 .star-button-holder {
-    flex-direction: column;
+    display: flex;
     justify-content: end;
     align-items: center;
 }

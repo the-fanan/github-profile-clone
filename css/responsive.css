@@ -228,11 +228,12 @@
     }
 
     .navbar .nav-item.search .search-box {
-        width: 240px;
+        min-width: 240px;
+        max-width: 240px;
         padding-right: 0;
     }
     .navbar .nav-item.search .search-box input {
-        width: 70%;
+        min-width: 100px;
     }
 
     .navbar .nav-item.search .search-box span.slash-holder {
