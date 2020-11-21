@@ -2,6 +2,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
 }
 /**
 *
@@ -34,6 +35,10 @@ html, body {
 
 .padding-vertical {
     padding: 16px 0;
+}
+
+.padding-vertical-md {
+    padding: 24px 0;
 }
 /**
 *
@@ -500,4 +505,101 @@ html, body {
     position: relative;
     top: 1px;
     margin-right: 4px;
+}
+
+.repositories-list {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.repositories-list .repository-main {
+    border-bottom: 1px solid #e1e4e8;
+    display: flex;
+    justify-content: center;
+}
+
+.repositories-list .repository-main h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 4px;
+}
+
+.repositories-list .repository-main h3 a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+.repositories-list .repository-main h3 a:hover {
+    text-decoration: underline;
+}
+
+.repositories-list .repository-main p.description {
+    padding-right: 24px;
+    margin: 0;
+    margin-bottom: 8px;
+    color: #586069;
+    font-size: 14px;
+}
+
+.repositories-list .repository-main .info {
+    margin: 0;
+    margin-top: 12px;
+    padding: 0;
+}
+
+.repositories-list .repository-main .info .info-item {
+    margin-right: 16px;
+    font-size: 12px;
+    color: #586069;
+}
+
+.repositories-list .repository-main .info .info-item .language-color {
+    display: inline-block;
+    position: relative;
+    top: 1px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.repositories-list .repository-main .info .info-item svg {
+    fill: #586069;
+    position: relative;
+    top: 2px;
+}
+
+.repositories-list .repository-main .info .info-item a {
+    text-decoration: none;
+    color:  #586069;
+}
+
+.repositories-list .repository-main .info .info-item a:hover {
+    color: #0366d6;
+}
+
+.repositories-list .repository-main .info .info-item a:hover svg {
+    fill: #0366d6;
+}
+
+.star-button-holder {
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+}
+
+.star-button-holder .button {
+    font-weight: 400;
+    font-size: 12px;
+    padding: 3px 12px;
+}
+
+.star-button-holder .button span {
+    vertical-align: text-bottom;
+}
+
+.star-button-holder .button svg {
+    fill: #6a737d;
+    vertical-align: text-top;
 }
