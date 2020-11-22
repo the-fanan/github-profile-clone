@@ -619,4 +619,5 @@ html, body {
 .star-button-holder .button svg {
     fill: #6a737d;
     vertical-align: text-top;
+    margin-right: 3px;
 }

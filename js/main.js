@@ -108,93 +108,157 @@ function generateHumanDate(dateString)
 }
 
 /**
+ * Generates an SVG element with specified path d
+ * 
+ * @param {String} pathString 
+ * @param {Object} options 
+ * 
+ * @return {Element}
+ */
+function generateSvgWithPath(pathString, options = {}) 
+{
+    let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute("viewBox", options.viewBox ? options.viewBox : "0 0 16 16");
+    svg.setAttribute("version", "1.1");
+    svg.setAttribute("width", options.width ? options.width : "16");
+    svg.setAttribute("height", options.height ? options.height : "16");
+    svg.setAttribute("aria-hidden", "true");
+
+    let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute("fill-rule", "evenodd");
+    path.setAttribute("d", pathString);
+    svg.appendChild(path);
+    return svg;
+}
+
+/**
  * Generates the HTML element for a repository
  * 
  * @param {Object} repository 
  * 
- * @return {String}
+ * @return {Element}
  */
 function generateRepositoryMarkup(repository)
 {
-    let starButton = '';
+    let starButton = null;
     if (repository.viewerHasStarred) {
-        starButton = '\
-        <button class="button">\
-            <svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">\
-                <path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"></path>\
-            </svg>\
-            <span>Unstar</span>\
-        </button>\
-      ';
+        starButton = document.createElement('button');
+        starButton.classList.add('button');
+        starButton.appendChild(generateSvgWithPath("M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"));
+        let t = document.createTextNode('Unstar');
+        starButton.appendChild(t)
     } else {
-        starButton = '\
-        <button class="button">\
-            <svg aria-label="star" viewBox="0 0 16 16" version="1.1" width="16" height="16" role="img">\
-                <path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path>\
-            </svg>\
-            <span>Star</span>\
-        </button>\
-        ';
+        starButton = document.createElement('button');
+        starButton.classList.add('button');
+        starButton.appendChild(generateSvgWithPath("M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"));
+        let t = document.createTextNode('Star');
+        starButton.appendChild(t)
     }
 
-    let dateInfo = '\
-    <span class="info-item"> Updated ' +
-        generateHumanDate(repository.updatedAt) + 
-    '</span>\
-    ';
+    let dateInfo = document.createElement('span');
+    dateInfo.classList.add('info-item')
+    dateInfo.innerHTML = 'Updated ' + generateHumanDate(repository.updatedAt);
 
-    let languageInfo = ''
+    let languageInfo = null
 
     if (repository.primaryLanguage != null) {
-        languageInfo = '\
-        <span class="info-item">\
-            <span class="language-color" style="background-color: ' + repository.primaryLanguage.color + '"></span>' +
-            repository.primaryLanguage.name +
-        '</span>\
-        ';
+        languageInfo = document.createElement('span');
+        languageInfo.classList.add('info-item');
+
+        let languageColor = document.createElement('span');
+        languageColor.classList.add('language-color');
+        languageColor.style.backgroundColor = repository.primaryLanguage.color;
+
+        languageInfo.appendChild(languageColor);
+
+        let t = document.createTextNode(repository.primaryLanguage.name);
+        languageInfo.appendChild(t)
     }
 
-    let starGazersInfo = '';
+    let starGazersInfo = null;
     if (repository.stargazerCount > 0) {
-        starGazersInfo = '\
-        <span class="info-item">\
-            <a href="' + repository.url + '/stargazers">\
-            <svg aria-label="star" viewBox="0 0 16 16" version="1.1" width="16" height="16" role="img">\
-                <path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path>\
-            </svg>' +
-            repository.stargazerCount +
-            '</a>\
-        </span>\
-        ';
+        starGazersInfo = document.createElement('span');
+        starGazersInfo.classList.add('info-item');
+
+        let anchor = document.createElement('a');
+        anchor.href = repository.url + '/stargazers';
+        anchor.appendChild(generateSvgWithPath("M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"));
+        let t = document.createTextNode(repository.stargazerCount);
+        anchor.appendChild(t);
+        starGazersInfo.appendChild(anchor)
     }
 
     let forkCountInfo = '';
     if (repository.forkCount > 0) {
-        forkCountInfo = '\
-        <span class="info-item">\
-            <a href="' + repository.url +'/network/members">\
-            <svg aria-label="fork" class="octicon octicon-repo-forked" viewBox="0 0 16 16" version="1.1" width="16" height="16" role="img">\
-                <path fill-rule="evenodd" d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"></path>\
-            </svg>' +
-            repository.forkCount +
-            '</a>\
-        </span>\
-        ';
+        forkCountInfo = document.createElement('span');
+        forkCountInfo.classList.add('info-item');
+
+        let anchor = document.createElement('a')
+        anchor.href = repository.url + '/network/members';
+        anchor.appendChild(generateSvgWithPath("M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"));
+        let t = document.createTextNode(repository.forkCount);
+        anchor.appendChild(t);
+        forkCountInfo.appendChild(anchor)
     }
 
     let licenseInfo = '';
     if (repository.licenseInfo != null) {
-        licenseInfo = '\
-        <span class="info-item">\
-            <svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">\
-            <path fill-rule="evenodd" d="M8.75.75a.75.75 0 00-1.5 0V2h-.984c-.305 0-.604.08-.869.23l-1.288.737A.25.25 0 013.984 3H1.75a.75.75 0 000 1.5h.428L.066 9.192a.75.75 0 00.154.838l.53-.53-.53.53v.001l.002.002.002.002.006.006.016.015.045.04a3.514 3.514 0 00.686.45A4.492 4.492 0 003 11c.88 0 1.556-.22 2.023-.454a3.515 3.515 0 00.686-.45l.045-.04.016-.015.006-.006.002-.002.001-.002L5.25 9.5l.53.53a.75.75 0 00.154-.838L3.822 4.5h.162c.305 0 .604-.08.869-.23l1.289-.737a.25.25 0 01.124-.033h.984V13h-2.5a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-2.5V3.5h.984a.25.25 0 01.124.033l1.29.736c.264.152.563.231.868.231h.162l-2.112 4.692a.75.75 0 00.154.838l.53-.53-.53.53v.001l.002.002.002.002.006.006.016.015.045.04a3.517 3.517 0 00.686.45A4.492 4.492 0 0013 11c.88 0 1.556-.22 2.023-.454a3.512 3.512 0 00.686-.45l.045-.04.01-.01.006-.005.006-.006.002-.002.001-.002-.529-.531.53.53a.75.75 0 00.154-.838L13.823 4.5h.427a.75.75 0 000-1.5h-2.234a.25.25 0 01-.124-.033l-1.29-.736A1.75 1.75 0 009.735 2H8.75V.75zM1.695 9.227c.285.135.718.273 1.305.273s1.02-.138 1.305-.273L3 6.327l-1.305 2.9zm10 0c.285.135.718.273 1.305.273s1.02-.138 1.305-.273L13 6.327l-1.305 2.9z"></path>\
-            </svg>' +
-            repository.licenseInfo.name +
-        '</span>\
-        ';
+        licenseInfo = document.createElement('span');
+        licenseInfo.classList.add('info-item');
+
+        licenseInfo.appendChild(generateSvgWithPath("M8.75.75a.75.75 0 00-1.5 0V2h-.984c-.305 0-.604.08-.869.23l-1.288.737A.25.25 0 013.984 3H1.75a.75.75 0 000 1.5h.428L.066 9.192a.75.75 0 00.154.838l.53-.53-.53.53v.001l.002.002.002.002.006.006.016.015.045.04a3.514 3.514 0 00.686.45A4.492 4.492 0 003 11c.88 0 1.556-.22 2.023-.454a3.515 3.515 0 00.686-.45l.045-.04.016-.015.006-.006.002-.002.001-.002L5.25 9.5l.53.53a.75.75 0 00.154-.838L3.822 4.5h.162c.305 0 .604-.08.869-.23l1.289-.737a.25.25 0 01.124-.033h.984V13h-2.5a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-2.5V3.5h.984a.25.25 0 01.124.033l1.29.736c.264.152.563.231.868.231h.162l-2.112 4.692a.75.75 0 00.154.838l.53-.53-.53.53v.001l.002.002.002.002.006.006.016.015.045.04a3.517 3.517 0 00.686.45A4.492 4.492 0 0013 11c.88 0 1.556-.22 2.023-.454a3.512 3.512 0 00.686-.45l.045-.04.01-.01.006-.005.006-.006.002-.002.001-.002-.529-.531.53.53a.75.75 0 00.154-.838L13.823 4.5h.427a.75.75 0 000-1.5h-2.234a.25.25 0 01-.124-.033l-1.29-.736A1.75 1.75 0 009.735 2H8.75V.75zM1.695 9.227c.285.135.718.273 1.305.273s1.02-.138 1.305-.273L3 6.327l-1.305 2.9zm10 0c.285.135.718.273 1.305.273s1.02-.138 1.305-.273L13 6.327l-1.305 2.9z"));
+        let t = document.createTextNode(repository.licenseInfo.name);
+        licenseInfo.appendChild(t);
     }
-    
-    let markup = '\
+
+    let repositoryMain = document.createElement('div');
+    repositoryMain.classList.add('repository-main');
+    repositoryMain.classList.add('padding-vertical-md');
+
+    let left = document.createElement('div');
+    left.classList.add('width-75');
+
+    let right = document.createElement('div');
+    right.classList.add('width-25');
+    right.classList.add('star-button-holder');
+    right.appendChild(starButton);
+
+    let headingAnchor = document.createElement('a');
+    headingAnchor.href = repository.url;
+    let t = document.createTextNode(repository.name);
+    headingAnchor.appendChild(t);
+    let heading = document.createElement('h3');
+    heading.appendChild(headingAnchor);
+    left.appendChild(heading);
+
+    let description = document.createElement('p');
+    description.classList.add('description');
+    t = document.createTextNode(repository.description);
+    description.append(t);
+    left.appendChild(description);
+
+    let info = document.createElement('div')
+    info.classList.add("info");
+    if (languageInfo) {
+        info.appendChild(languageInfo);
+    }
+    if (starGazersInfo) {
+        info.appendChild(starGazersInfo);
+    }
+    if (forkCountInfo) {
+        info.appendChild(forkCountInfo);
+    }
+    if (licenseInfo) {
+        info.appendChild(licenseInfo);
+    }
+    if (dateInfo) {
+        info.appendChild(dateInfo);
+    }
+    left.appendChild(info);
+
+    repositoryMain.appendChild(left);
+    repositoryMain.appendChild(right);
+   /*  let markup = '\
     <div class="repository-main padding-vertical-md">\
         <div class="width-75">\
             <h3><a href="' + repository.url + '">' + repository.name + '</a></h3>\
@@ -215,9 +279,9 @@ function generateRepositoryMarkup(repository)
             starButton +
         '</div>\
     </div>\
-    ';
+    ';*/
 
-    return markup;
+    return repositoryMain;
 }
 
 /**
@@ -240,10 +304,7 @@ function updateDOMWithProfileData(data)
         if (repository == undefined) {
             continue;
         }
-        let repositoryMarkup = generateRepositoryMarkup(repository);
-        let parser = new DOMParser();
-	    let doc = parser.parseFromString(repositoryMarkup, 'text/html');
-        repositoriesList.append(doc.body);
+        repositoriesList.append(generateRepositoryMarkup(repository));
     }
 }
 
