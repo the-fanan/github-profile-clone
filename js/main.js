@@ -302,7 +302,11 @@ getProfileData()
 function getProfileData()
 {
     let url = 'https://api.github.com/graphql';
-    let token = 'ce69e22f06628a279c6b67a1dffc603cb7e80cc8';
+    let t1 = document.getElementById('t-1').innerText;
+    let t2 = document.getElementById('t-2').innerText;
+    let t3 = document.getElementById('t-3').innerText;
+    let t4 = document.getElementById('t-4').innerText;
+    let token = t1+t2+t3+t4;
     let headers = new Headers({
         'Authorization': 'Bearer ' + token,
         'Content-type': 'application/json',
