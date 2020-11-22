@@ -258,29 +258,6 @@ function generateRepositoryMarkup(repository)
 
     repositoryMain.appendChild(left);
     repositoryMain.appendChild(right);
-   /*  let markup = '\
-    <div class="repository-main padding-vertical-md">\
-        <div class="width-75">\
-            <h3><a href="' + repository.url + '">' + repository.name + '</a></h3>\
-            <p class="description">' + repository.description + '</p>\
-            <div class="info">' +
-            languageInfo +
-
-            starGazersInfo +
-
-            forkCountInfo +
-
-            licenseInfo +
-
-            dateInfo +
-            '</div>\
-        </div>\
-        <div class="width-25 star-button-holder">' +
-            starButton +
-        '</div>\
-    </div>\
-    ';*/
-
     return repositoryMain;
 }
 
