@@ -261,6 +261,14 @@
         width: 100%;
     }
 
+    .width-sm-75 {
+        width: 75%;
+    }
+    
+    .width-sm-100 {
+        width: 100%;
+    }
+
     .padding-horizontal-lg {
         padding: 0 16px;
     }
@@ -363,9 +371,10 @@
     .sub-nav-sticky-container-sm {
         position: sticky!important;
         top: 0!important;
-        width: 104%!important;
-        margin-left:-10%;
-        margin-right:-10%;
+        width: 104.5%!important;
+        margin-left:-13%;
+        margin-right:-13%;
+        padding: 0 8px;
     }
     .content-container {
         flex-wrap: wrap;
@@ -391,6 +400,7 @@
         right: 0;
     }
 }
+
 
 /******************************************************************************
 * Extra Small screens
