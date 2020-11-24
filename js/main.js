@@ -277,6 +277,44 @@ function updateDOMWithProfileData(data)
     for (let i = 0; i < respositoryCountBadges.length; i++) {
         respositoryCountBadges[i].innerHTML = data.user.repositories.totalCount;
     }
+    //update url for profile image
+    let profileImages = document.getElementsByClassName("profile-image");
+    for (let i = 0; i < profileImages.length; i++) {
+        if (profileImages[i].tagName !== undefined) {
+            profileImages[i].src = data.user.avatarUrl;
+        }
+    }
+    //update usename text
+    let usernameTexts = document.getElementsByClassName("username-text");
+    for (let i = 0; i < usernameTexts.length; i++) {
+        if (usernameTexts[i].tagName !== undefined) {
+            let t = document.createTextNode(data.user.login);
+            usernameTexts[i].appendChild(t);
+        }
+    }
+    //update fullname text
+    let fullnameTexts = document.getElementsByClassName("fullname-text");
+    for (let i = 0; i < fullnameTexts.length; i++) {
+        if (fullnameTexts[i].tagName !== undefined) {
+            let t = document.createTextNode(data.user.name);
+            fullnameTexts[i].appendChild(t);
+        }
+    }
+    //update status
+    let statusMessages = document.getElementsByClassName("user-status-message");
+    for (let i = 0; i < statusMessages.length; i++) {
+        if (statusMessages[i].tagName !== undefined) {
+            let t = document.createTextNode(data.user.status.message);
+            statusMessages[i].appendChild(t);
+        }
+    }
+    let statusEmojiHolder = document.getElementsByClassName("user-status-emoji-holder");
+    for (let i = 0; i < statusEmojiHolder.length; i++) {
+        if (statusEmojiHolder[i].tagName !== undefined) {
+            let doc = new DOMParser().parseFromString(data.user.status.emojiHTML, 'text/html');
+            statusEmojiHolder[i].appendChild(doc.body);
+        }
+    }
     //populate the repositories list element with repositories
     let repositoriesList = document.getElementById("repositories-list");
     let repositories = data.user.repositories.nodes;
@@ -288,6 +326,26 @@ function updateDOMWithProfileData(data)
         repositoriesList.append(generateRepositoryMarkup(repository));
     }
 }
+
+/**
+ * Detects if an element is still in view port
+ * Gotten from https://stackoverflow.com/a/7557433/7715823
+ * 
+ * @param {Element} el 
+ * 
+ * @return {Boolean}
+ */
+function elementInViewport (el) {
+    var rect = el.getBoundingClientRect();
+
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
 
 getProfileData()
     .then(data => {
@@ -315,7 +373,7 @@ function getProfileData()
         'Authorization': 'Bearer ' + token,
         'Content-type': 'application/json',
     })
-    let body = '{ "query": "query { user(login:\\\"the-fanan\\\") { name url login bio avatarUrl followers { totalCount } following { totalCount } location email twitterUsername websiteUrl starredRepositories { totalCount } status { id emoji } repositories(first: 20, orderBy: {field:UPDATED_AT, direction:DESC}) { totalCount nodes { updatedAt licenseInfo { name } viewerHasStarred description name url isPrivate forkCount stargazerCount primaryLanguage { id name color } owner { login } defaultBranchRef { name } } } } }" }';
+    let body = '{ "query": "query { user(login:\\\"the-fanan\\\") { name url login bio avatarUrl followers { totalCount } following { totalCount } location email twitterUsername websiteUrl starredRepositories { totalCount } status { id emoji emojiHTML message} repositories(first: 20, orderBy: {field:UPDATED_AT, direction:DESC}) { totalCount nodes { updatedAt licenseInfo { name } viewerHasStarred description name url isPrivate forkCount stargazerCount primaryLanguage { id name color } owner { login } defaultBranchRef { name } } } } }" }';
 
     let result = new Promise((resolve, reject) => {
         fetch(url, {
@@ -344,6 +402,21 @@ window.addEventListener('load', function () {
     document.addEventListener('click', function(event) {
         if (!event.target.classList.contains("dropdown")) {
             hideDropdown();
+        }
+    })
+
+    document.addEventListener('scroll', function() {
+        //determine if main profile image has scrolled out of view
+        let mainProfileImage = document.getElementById("main-profile-image");
+        let auxProfileImage =  document.getElementById("aux-profile-image");
+        if (elementInViewport(mainProfileImage)) {
+            if (!auxProfileImage.classList.contains("display-none")) {
+                auxProfileImage.classList.add("display-none")
+            }
+        } else {
+            if (auxProfileImage.classList.contains("display-none")) {
+                auxProfileImage.classList.remove("display-none")
+            }
         }
     })
 })

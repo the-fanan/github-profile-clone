@@ -9,6 +9,7 @@ html, body {
 * Utilities
 *
 */
+
 .width-25 {
     width: 25%;
 }
@@ -380,6 +381,25 @@ html, body {
     background-color: #fff;
 }
 
+.sub-nav-sticky-container .sticky-profile-image-holder {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 100%;
+}
+
+.sub-nav-sticky-container .sticky-profile-image-holder img {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    border-radius: 50%;
+}
+
+.sub-nav-sticky-container .sticky-profile-image-holder .username-text {
+    color: #24292e;
+}
+
 .sub-nav {
     position: relative;
     display: flex;
@@ -445,7 +465,7 @@ html, body {
 .content-container {
     display: flex;
     justify-content: center;
-  
+    padding-top: 1px;
 }
 
 .repo-area {
@@ -620,4 +640,104 @@ html, body {
     fill: #6a737d;
     vertical-align: text-top;
     margin-right: 3px;
+}
+
+.profile-area {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.profile-area .img-name-area {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: max-content;
+    position: relative;
+    top: -30px;
+}
+
+.profile-area .img-name-area .name-area {
+    display: flex;
+    align-items: center;
+    height: max-content;
+}
+
+.profile-area .img-name-area .name-area h3 {
+    padding: 0;
+}
+.profile-area .img-name-area .name-area h3 p {
+    margin: 0;
+    padding: 0;
+}
+
+.profile-area .img-name-area .name-area h3 p.fullname-text {
+    font-size: 26px;
+    color: #24292e;
+}
+
+.profile-area .img-name-area .name-area h3 p.username-text {
+    font-size: 20px;
+    font-weight: 500;
+    color: #586069;
+}
+
+.profile-area .img-name-area .img-area {
+    display: inline-flex;
+    height: max-content;
+    margin: 0;
+    position: relative;
+}
+
+.profile-area .img-name-area .img-area .user-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 2em;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    bottom: 32px;
+    left: 100%;
+    margin-left: -40px;
+    z-index: 12;
+    background-color: #fff;
+    border: 1px solid #e1e4e8;
+    box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04);
+}
+
+.profile-area .img-name-area .img-area .user-status .user-status-message {
+    font-size: 12px;
+    display: none;
+}
+
+.profile-area .img-name-area .img-area .user-status .user-status-message:hover {
+    color: #006eed;
+}
+
+.profile-area .img-name-area .img-area .user-status .user-status-emoji-holder>div {
+    display: inline-block;
+}
+
+.profile-area .img-name-area .img-area .user-status:hover {
+    width: 100%;
+    max-width: max-content;
+}
+
+.profile-area .img-name-area .img-area .user-status:hover .user-status-emoji-holder {
+    padding-right: 5px;
+}
+
+.profile-area .img-name-area .img-area .user-status:hover .user-status-message {
+    display: inline-block;
+}
+
+
+.profile-area .img-name-area img {
+    display: block;
+    width: 100%;
+    border-radius: 50%;
+    z-index: 12;
 }

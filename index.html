@@ -60,9 +60,8 @@
         <a href="https://github.com/issues">Issues</a>
         <a href="https://github.com/marketplace">Marketplace</a>
         <a href="https://github.com/explore">Explore</a>
-        <a href="https://github.com/the-fanan" class="profile-link display-none display-sm-flex display-xs-flex">
-          <img src="https://avatars3.githubusercontent.com/u/26856247?s=460&u=cd8630da53490003167e962dc9648885e2e133de&v=4" />
-          the-fanan
+        <a href="https://github.com/the-fanan" class="profile-link display-none display-sm-flex display-xs-flex username-text">
+          <img class="profile-image" />
         </a>
         <a href="https://github.com/sign-out" class="display-none display-sm-flex display-xs-flex">
           <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
@@ -112,12 +111,12 @@
 
       <div class="nav-item user-dropdown display-sm-none">
         <div class="icon-holder dropdown-toggler">
-          <img src="https://avatars3.githubusercontent.com/u/26856247?s=460&u=cd8630da53490003167e962dc9648885e2e133de&v=4" />
+          <img class="profile-image"/>
           <span class="dropdown-icon"></span>
         </div>
         <div class="dropdown">
           <ul class="dropdown-list">
-            <li><a class="heading" href="https://github.com/the-fanan">Signed in as <strong>the-fanan</strong></a></li>
+            <li><a class="heading" href="https://github.com/the-fanan">Signed in as <strong class="username-text"></strong></a></li>
             <li class="divider"></li>
             <li>
               <div class="status-container">
@@ -169,6 +168,10 @@
     </nav>
     <div class="sub-nav-sticky-container padding-horizontal-lg display-sm-none">
       <div class="width-25 padding-horizontal">
+        <div class="sticky-profile-image-holder display-none" id="aux-profile-image">
+          <img class="profile-image" />
+          <strong class="username-text"></strong>
+        </div>
       </div>
       <div class="width-75 padding-horizontal">
         <nav class="sub-nav">
@@ -202,8 +205,23 @@
     </div>
 
     <div class="content-container padding-horizontal-lg">
-      <div class="width-25 width-sm-100 padding-horizontal">
-        
+      <div class="width-25 width-sm-100 padding-horizontal profile-area">
+        <div class="width-100 img-name-area">
+          <div class="width-100 width-sm-16 img-area">
+            <img class="profile-image" id="main-profile-image"/>
+            <span class="user-status display-sm-none">
+              <span class="user-status-emoji-holder">
+              </span>
+              <span class="user-status-message"></span>
+            </span>
+          </div>
+          <div class="width-100 width-sm-75 name-area">
+            <h3>
+              <p class="fullname-text"></p>
+              <p class="username-text"></p>
+            </h3>
+          </div>
+        </div>
       </div>
       <div class="width-75 width-sm-100 padding-horizontal repo-area">
         <div class="sub-nav-sticky-container sub-nav-sticky-container-sm display-none display-sm-flex display-xs-flex width-sm-100 padding-horizontal-lg">

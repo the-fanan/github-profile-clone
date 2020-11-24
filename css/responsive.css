@@ -264,6 +264,10 @@
     .width-sm-75 {
         width: 75%;
     }
+
+    .width-sm-16 {
+        width: 16.3333%;
+    }
     
     .width-sm-100 {
         width: 100%;
@@ -398,6 +402,14 @@
     .repo-filter-container  .buttons-holder .button:last-child {
         position: absolute;
         right: 0;
+    }
+
+    .profile-area .img-name-area {
+        top: 1px;
+    }
+    .profile-area .img-name-area .img-area {
+        height: auto;
+        margin-right: 16px;
     }
 }
 
