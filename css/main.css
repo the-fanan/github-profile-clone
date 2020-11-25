@@ -746,9 +746,34 @@ html, body {
     z-index: 12;
 }
 
-.profile-area .bio {
+.profile-area .bio-area .bio {
     font-size: 16px;
     color: #24292e;
     margin: 0;
     font-weight: 500;
+}
+
+.profile-area .sm-status-area .user-status {
+    padding: 4px 8px;
+    width: 100%;
+    display: flex;
+    margin-top: 8px;
+    border-radius: 6px;
+    border: 1px solid #e1e4e8;
+    justify-content: start;
+    align-items: center;
+    cursor: pointer;
+    color: #24292e
+}
+
+.profile-area .sm-status-area .user-status .user-status-emoji-holder {
+    margin-right: 8px;
+}
+
+.profile-area .sm-status-area .user-status .user-status-message {
+    line-height: 1.2;
+}
+
+.profile-area .sm-status-area .user-status:hover .user-status-message {
+    color: #0366d6;
 }
