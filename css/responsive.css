@@ -81,6 +81,10 @@
     .display-xl-inline-block {
         display: inline-block!important;
     }
+
+    .profile-area .img-name-area .img-area .user-status {
+        margin-left: -70px;
+    }
 }
 
 /******************************************************************************
@@ -249,7 +253,9 @@
         width: 100%;
     }
 
-  
+    .profile-area .img-name-area .img-area .user-status {
+        margin-left: -30px;
+    }
 }
 
 /******************************************************************************

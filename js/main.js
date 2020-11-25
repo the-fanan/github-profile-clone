@@ -329,6 +329,13 @@ function updateDOMWithProfileData(data)
         }
         repositoriesList.append(generateRepositoryMarkup(repository));
     }
+    //update network info
+    let followers = document.getElementById("followers-count");
+    followers.innerHTML = data.user.followers.totalCount;
+    let following = document.getElementById("following-count");
+    following.innerHTML = data.user.following.totalCount;
+    let starredRepositoriesCount = document.getElementById("starred-repositories-count");
+    starredRepositoriesCount.innerHTML = data.user.starredRepositories.totalCount;
 }
 
 /**

@@ -706,7 +706,7 @@ html, body {
     width: 20px;
     bottom: 32px;
     left: 100%;
-    margin-left: -40px;
+    margin-left: -50px;
     z-index: 12;
     background-color: #fff;
     border: 1px solid #e1e4e8;
@@ -782,4 +782,42 @@ html, body {
 
 .profile-area .sm-status-area .user-status:hover .user-status-message {
     color: #0366d6;
+}
+
+.profile-area .network-info-area {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    line-height: 2;
+    flex-wrap: wrap;
+    margin: 16px 0;
+}
+
+.profile-area .network-info-area .info-item {
+    display: inline-block;
+    color: #586069;
+    line-height: 2;
+    margin-right: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.profile-area .network-info-area .info-item:first-child {
+    margin-left: 0;
+}
+
+.profile-area .network-info-area .info-item svg {
+    fill: #586069;
+    vertical-align: text-bottom;
+}
+
+.profile-area .network-info-area .info-item strong {
+    color: #24292e;
+}
+
+.profile-area .network-info-area .info-item:hover,  .profile-area .network-info-area .info-item:hover strong{
+    color: #0366d6;
+}
+.profile-area .network-info-area .info-item:hover svg {
+    fill: #0366d6;
 }
