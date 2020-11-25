@@ -746,6 +746,10 @@ html, body {
     z-index: 12;
 }
 
+.profile-area .bio-area {
+    margin-bottom: 16px;
+}
+
 .profile-area .bio-area .bio {
     font-size: 16px;
     color: #24292e;
@@ -757,7 +761,7 @@ html, body {
     padding: 4px 8px;
     width: 100%;
     display: flex;
-    margin-top: 8px;
+    margin: 8px 0;
     border-radius: 6px;
     border: 1px solid #e1e4e8;
     justify-content: start;
