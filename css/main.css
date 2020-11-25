@@ -387,6 +387,8 @@ html, body {
     justify-content: start;
     align-items: center;
     height: 100%;
+    transition: .4s ease;
+    opacity: 0;
 }
 
 .sub-nav-sticky-container .sticky-profile-image-holder img {

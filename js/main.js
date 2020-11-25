@@ -414,13 +414,9 @@ window.addEventListener('load', function () {
         let mainProfileImage = document.getElementById("spy-profile-view");
         let auxProfileImage =  document.getElementById("aux-profile-image");
         if (elementInViewport(mainProfileImage)) {
-            if (!auxProfileImage.classList.contains("display-none")) {
-                auxProfileImage.classList.add("display-none")
-            }
+            auxProfileImage.style.opacity = 0;
         } else {
-            if (auxProfileImage.classList.contains("display-none")) {
-                auxProfileImage.classList.remove("display-none")
-            }
+            auxProfileImage.style.opacity = 1;
         }
     })
 })
