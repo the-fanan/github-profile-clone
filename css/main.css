@@ -687,6 +687,8 @@ html, body {
     height: max-content;
     margin: 0;
     position: relative;
+    align-items: center;
+    justify-content: center;
 }
 
 .profile-area .img-name-area .img-area .user-status {
@@ -738,6 +740,7 @@ html, body {
 .profile-area .img-name-area img {
     display: block;
     width: 100%;
+    height: auto;
     border-radius: 50%;
     z-index: 12;
 }
