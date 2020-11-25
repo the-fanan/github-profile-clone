@@ -315,6 +315,10 @@ function updateDOMWithProfileData(data)
             statusEmojiHolder[i].appendChild(doc.body);
         }
     }
+    //update bio
+    let bio = document.getElementById("bio");
+    let bioText = document.createTextNode(data.user.bio);
+    bio.appendChild(bioText);
     //populate the repositories list element with repositories
     let repositoriesList = document.getElementById("repositories-list");
     let repositories = data.user.repositories.nodes;

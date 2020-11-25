@@ -646,6 +646,8 @@ html, body {
     display: flex;
     flex-wrap: wrap;
     position: relative;
+    flex-direction: column;
+    top: -30px;
 }
 
 .profile-area .img-name-area {
@@ -654,7 +656,6 @@ html, body {
     flex-wrap: wrap;
     height: max-content;
     position: relative;
-    top: -30px;
 }
 
 .profile-area .img-name-area .name-area {
@@ -743,4 +744,11 @@ html, body {
     height: auto;
     border-radius: 50%;
     z-index: 12;
+}
+
+.profile-area .bio {
+    font-size: 16px;
+    color: #24292e;
+    margin: 0;
+    font-weight: 500;
 }
