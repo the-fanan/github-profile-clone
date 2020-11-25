@@ -407,7 +407,7 @@ window.addEventListener('load', function () {
 
     document.addEventListener('scroll', function() {
         //determine if main profile image has scrolled out of view
-        let mainProfileImage = document.getElementById("main-profile-image");
+        let mainProfileImage = document.getElementById("spy-profile-view");
         let auxProfileImage =  document.getElementById("aux-profile-image");
         if (elementInViewport(mainProfileImage)) {
             if (!auxProfileImage.classList.contains("display-none")) {
