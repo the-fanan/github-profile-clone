@@ -468,4 +468,8 @@
     .sub-nav a svg {
         display: none;
     }
+
+    .repositories-list .repository-main h3 {
+        word-break: break-all;
+    }
 }
