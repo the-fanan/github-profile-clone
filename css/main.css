@@ -381,6 +381,13 @@ html, body {
     background-color: #fff;
 }
 
+.sub-nav-sticky-container .xl-responsive {
+    width: 100%;
+    max-width: 1216px;
+    display: flex;
+    justify-content: center;
+}
+
 .sub-nav-sticky-container .sticky-profile-image-holder {
     width: 100%;
     display: flex;
