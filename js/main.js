@@ -96,7 +96,7 @@ function generateHumanDate(dateString)
     }
 
     if (diffDays < 365) {
-        return "on " + date.toLocaleString('default', { month: 'short' }) + " " + date.getDay();
+        return "on " + date.toLocaleString('default', { month: 'short' }) + " " + date.getDate();
     }
 
     let diffYears = Math.round((today.getTime() - date.getTime()) / (1000 * 3600 * 24 * 365));
