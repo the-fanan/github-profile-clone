@@ -56,8 +56,12 @@ html, body {
     text-align: center;
     transition: .2s ease;
     line-height: 20px;
+    transform: none;
     -webkit-transform: none;
     -moz-transform: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     cursor: pointer;
 }
 
@@ -70,7 +74,7 @@ html, body {
     color: #fff;
     background-color:#2ea44f;
     border-color:rgba(27, 31, 35, .15);
-    box-shadow:0 1px 0 rgba(27, 31, 35, 0.1), inset 0 1px 0 hsla(0, 0%, 100%, .3);
+    box-shadow:none;
 }
 
 .button-green:hover {
@@ -553,7 +557,7 @@ html, body {
 }
 
 .repo-filter-container  .buttons-holder .button-green svg {
-    fill: #fff;
+    fill: rgba(255,255,255,.8);
     position: relative;
     top: 1px;
     margin-right: 4px;
