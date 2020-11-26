@@ -470,6 +470,13 @@ html, body {
     padding-top: 1px;
 }
 
+.content-container .content-body {
+    display: flex; 
+    width: 100%; 
+    max-width: 1216px;
+    justify-content: center; 
+}
+
 .repo-area {
     display: flex;
     justify-content: center;

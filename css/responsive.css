@@ -386,9 +386,14 @@
         margin-right:-13%;
         padding: 0 8px;
     }
-    .content-container {
+
+    .content-container .content-body {
+        flex-direction: row; 
         flex-wrap: wrap;
     }
+   /* .content-container {
+        flex-wrap: wrap;
+    }*/
 
     .repo-filter-container {
         flex-wrap: wrap;
