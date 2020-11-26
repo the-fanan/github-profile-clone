@@ -402,6 +402,9 @@ function elementInViewport (el) {
 getProfileData()
     .then(data => {
         updateDOMWithProfileData(data.data)
+        //hide preloader
+        let preloader = document.getElementById("preloader")
+        preloader.style.display = "none"
         console.log(data)
     })
     .catch(error => {
