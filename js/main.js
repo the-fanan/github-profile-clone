@@ -336,6 +336,47 @@ function updateDOMWithProfileData(data)
     following.innerHTML = data.user.following.totalCount;
     let starredRepositoriesCount = document.getElementById("starred-repositories-count");
     starredRepositoriesCount.innerHTML = data.user.starredRepositories.totalCount;
+    //updatemcontact info
+    let contactLocation = document.getElementsByClassName("contact-location");
+    for (let i = 0; i < contactLocation.length; i++) {
+        if (contactLocation[i].tagName !== undefined) {
+            let t = document.createTextNode(data.user.location);
+            contactLocation[i].appendChild(t);
+        }
+    }
+
+    let contactEmail = document.getElementsByClassName("contact-email");
+    for (let i = 0; i < contactEmail.length; i++) {
+        if (contactEmail[i].tagName !== undefined) {
+            let a = document.createElement('a')
+            a.setAttribute('href', "mailto:" + data.user.email)
+            let t = document.createTextNode(data.user.email);
+            a.appendChild(t);
+            contactEmail[i].appendChild(a)
+        }
+    }
+
+    let contactWebsite = document.getElementsByClassName("contact-website");
+    for (let i = 0; i < contactWebsite.length; i++) {
+        if (contactWebsite[i].tagName !== undefined) {
+            let a = document.createElement('a')
+            a.setAttribute('href', data.user.websiteUrl)
+            let t = document.createTextNode(data.user.websiteUrl);
+            a.appendChild(t);
+            contactWebsite[i].appendChild(a)
+        }
+    }
+
+    let contactTwitter = document.getElementsByClassName("contact-twitter");
+    for (let i = 0; i < contactTwitter.length; i++) {
+        if (contactTwitter[i].tagName !== undefined) {
+            let a = document.createElement('a')
+            a.setAttribute('href', "https://twitter.com/" + data.user.twitterUsername)
+            let t = document.createTextNode("@" + data.user.twitterUsername);
+            a.appendChild(t);
+            contactTwitter[i].appendChild(a)
+        }
+    }
 }
 
 /**

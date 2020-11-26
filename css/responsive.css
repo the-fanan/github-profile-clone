@@ -420,6 +420,11 @@
         height: auto;
         margin-right: 16px;
     }
+
+    .profile-area .edit-profile-area {
+        margin-bottom: 16px;
+    }
+    
 }
 
 

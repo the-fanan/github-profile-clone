@@ -839,9 +839,41 @@ html, body {
 .profile-area .network-info-area .info-item:hover,  .profile-area .network-info-area .info-item:hover strong{
     color: #0366d6;
 }
+
 .profile-area .network-info-area .info-item:hover svg {
     fill: #0366d6;
 }
+
+.profile-area .contact-area ul.contact-list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    font-size: 14px;
+    color: #24292e;
+    font-weight: 500;
+}
+
+.profile-area .contact-area ul.contact-list li{
+    padding-top: 4px;
+}
+
+.profile-area .contact-area ul.contact-list li svg {
+    width: 16px;
+    height: 16px;
+    fill: #6a737d;
+    vertical-align: text-bottom;
+    margin-right: 5px;
+}
+
+.profile-area .contact-area ul.contact-list li a {
+    text-decoration: none;
+    color: #24292e;
+}
+
+.profile-area .contact-area ul.contact-list li a:hover {
+    text-decoration: underline;
+    color: #0366d6;
+}   
 
 .footer {
     display: flex;
