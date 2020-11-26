@@ -597,6 +597,7 @@ html, body {
     margin-bottom: 8px;
     color: #586069;
     font-size: 14px;
+    word-break: break-word;
 }
 
 .repositories-list .repository-main .info {
