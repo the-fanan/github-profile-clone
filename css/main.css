@@ -475,6 +475,7 @@ html, body {
     display: flex;
     justify-content: center;
     padding-top: 1px;
+    flex-direction: column;
 }
 
 .content-container .content-body {
@@ -834,4 +835,50 @@ html, body {
 }
 .profile-area .network-info-area .info-item:hover svg {
     fill: #0366d6;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    margin: 40px 0;
+    padding-top: 40px;
+    padding-bottom: 8px;
+    border-top: 1px solid #e1e4e8;
+    color: #24292e;
+    font-size: 12px;
+    max-width: 1280px;
+    font-weight: 500;
+}
+
+.footer svg.octicon-mark-github {
+    fill: #d1d5da;
+    cursor: pointer;
+    margin-right: 24px;
+    vertical-align: text-bottom;
+}
+
+.footer svg.octicon-mark-github:hover {
+    fill: #6a737d;
+}
+
+.footer .footer-links-list {
+   padding: 0;
+   display: flex;
+   flex-grow: 1;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   list-style-type: none;
+}
+
+.footer .footer-links-list  li {
+    margin-right: 16px;
+}
+
+.footer .footer-links-list li a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+.footer .footer-links-list li a:hover {
+    text-decoration: underline;
 }

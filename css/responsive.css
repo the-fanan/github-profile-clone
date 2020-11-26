@@ -256,6 +256,10 @@
     .profile-area .img-name-area .img-area .user-status {
         margin-left: -30px;
     }
+
+    .footer .footer-links-list {
+        justify-content: center;
+    }
 }
 
 /******************************************************************************
@@ -391,9 +395,6 @@
         flex-direction: row; 
         flex-wrap: wrap;
     }
-   /* .content-container {
-        flex-wrap: wrap;
-    }*/
 
     .repo-filter-container {
         flex-wrap: wrap;
