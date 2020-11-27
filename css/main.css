@@ -1,7 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
 }
 /**
@@ -447,19 +447,20 @@ html, body {
 
 .sub-nav a svg {
     fill: #959da5;
-    margin-right: 4px;
+    margin-right: 7px;
 }
 
 .sub-nav a .count-badge {
-    min-width: 20px;
+    min-width: 13px;
     font-size: 12px;
     line-height: 18px;
     padding: 0 6px;
     background-color: #e8eaec;
     border-radius: 2em;
-    margin-left: 4px;
+    margin-left: 7px;
     text-align: center;
-    font-weight: 500;
+    font-weight: 400;
+    border: 1px solid transparent;
 }
 
 .sub-nav a.active {
@@ -706,7 +707,7 @@ html, body {
 
 .profile-area .img-name-area .name-area h3 p.username-text {
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 400;
     color: #586069;
 }
 
@@ -781,7 +782,7 @@ html, body {
     font-size: 16px;
     color: #24292e;
     margin: 0;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .profile-area .sm-status-area .user-status {
@@ -854,7 +855,7 @@ html, body {
     list-style-type: none;
     font-size: 14px;
     color: #24292e;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .profile-area .contact-area ul.contact-list li{
@@ -890,7 +891,7 @@ html, body {
     font-size: 12px;
     width: 100%;
     max-width: 1280px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .footer svg.octicon-mark-github {
