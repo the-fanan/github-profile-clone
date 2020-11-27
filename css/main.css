@@ -104,7 +104,7 @@ html, body {
 .navbar {
     background-color: #24292e;
     padding: 16px 32px 16px;
-    height: 32px;
+    height: 30px;
     display: flex;
     justify-content: space-between;
     color: #fff;
@@ -114,6 +114,7 @@ html, body {
 
 .navbar .dropdown-icon {
     border-top-color: #fff;
+    margin-left: 4px;
 }
 
 .navbar a {
@@ -133,7 +134,11 @@ html, body {
     align-items: center;
     padding: 0;
     margin: 0;
-    margin-right: 15px;
+    margin-right: 16px;
+}
+
+.navbar .nav-item:last-child {
+    margin-right: 0;
 }
 
 .navbar .nav-item .dropdown {
@@ -287,7 +292,6 @@ html, body {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    margin-right: 5px;
 }
 
 .navbar .nav-item .icon-holder:hover svg {
