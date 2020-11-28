@@ -765,6 +765,14 @@ html, body {
     display: inline-block;
 }
 
+.profile-area .img-name-area .image-holder {
+    display: block;
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+}
 
 .profile-area .img-name-area img {
     display: block;
@@ -772,6 +780,9 @@ html, body {
     height: auto;
     border-radius: 50%;
     z-index: 12;
+    position: absolute;
+    top: 1px;
+    left: 0;
 }
 
 .profile-area .bio-area {
