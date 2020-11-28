@@ -360,7 +360,7 @@ function updateDOMWithProfileData(data)
     for (let i = 0; i < contactWebsite.length; i++) {
         if (contactWebsite[i].tagName !== undefined) {
             let a = document.createElement('a')
-            a.setAttribute('href', data.user.websiteUrl)
+            a.setAttribute('href', 'https://' + data.user.websiteUrl)
             let t = document.createTextNode(data.user.websiteUrl);
             a.appendChild(t);
             contactWebsite[i].appendChild(a)
