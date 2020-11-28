@@ -781,7 +781,7 @@ html, body {
     border-radius: 50%;
     z-index: 12;
     position: absolute;
-    top: 1px;
+    top: 0;
     left: 0;
 }
 
