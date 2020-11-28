@@ -398,19 +398,6 @@ function elementInViewport (el) {
     );
 }
 
-
-getProfileData()
-    .then(data => {
-        updateDOMWithProfileData(data.data)
-        //hide preloader
-        let preloader = document.getElementById("preloader")
-        preloader.style.display = "none"
-        console.log(data)
-    })
-    .catch(error => {
-        console.log(error)
-    })
-
 /**
  * Gets the user data from Github GraphQL API
  * 
@@ -447,6 +434,18 @@ function getProfileData()
 
     return result;
 }
+
+getProfileData()
+    .then(data => {
+        updateDOMWithProfileData(data.data)
+        //hide preloader
+        let preloader = document.getElementById("preloader")
+        preloader.style.display = "none"
+        console.log(data)
+    })
+    .catch(error => {
+        console.log(error)
+    })
 
 window.addEventListener('load', function () {
     document.querySelectorAll('.dropdown-toggler').forEach(item => {
