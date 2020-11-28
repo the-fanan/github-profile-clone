@@ -520,6 +520,7 @@ html, body {
 .repo-filter-container .search-input-holder input {
     -webkit-transform: none;
     -moz-transform: none;
+    transform: none;
     border: 1px solid #e1e4e8;
     border-radius: 6px;
     outline: none;
