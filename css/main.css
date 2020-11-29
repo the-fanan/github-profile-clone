@@ -661,10 +661,6 @@ html, body {
     padding: 3px 12px;
 }
 
-.star-button-holder .button span {
-    vertical-align: text-bottom;
-}
-
 .star-button-holder .button svg {
     fill: #6a737d;
     vertical-align: text-top;
